@@ -1,0 +1,5 @@
+Instructions for deploying package to AWS Lambda:
+1) cd <project_root>/alexa_aws_iot/lambda
+2) pip2.7 install -r requirements.txt -t .
+3) zip contents of 'lambda' directory
+4) Upload zip to AWS Lambda
