@@ -1,0 +1,348 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "vizio tv",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.MuteAction<object@Thing>",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PlaybackAction<object@VideoCreativeWork>",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "clear",
+                    "slots": [],
+                    "samples": [
+                        "clear search",
+                        "clear"
+                    ]
+                },
+                {
+                    "name": "setup",
+                    "slots": [],
+                    "samples": [
+                        "set up",
+                        "setup",
+                        "open setup",
+                        "open set up",
+                        "begin setup",
+                        "begin set up"
+                    ]
+                },
+                {
+                    "name": "Vizio",
+                    "slots": [
+                        {
+                            "name": "power_state",
+                            "type": "LIST_OF_POWER_STATES",
+                            "samples": [
+                                "{power_state}"
+                            ]
+                        },
+                        {
+                            "name": "button",
+                            "type": "LIST_OF_BUTTONS",
+                            "samples": [
+                                "{button}"
+                            ]
+                        },
+                        {
+                            "name": "search",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{search}"
+                            ]
+                        },
+                        {
+                            "name": "volume_direction",
+                            "type": "LIST_OF_VOLUME_DIRECTIONS",
+                            "samples": [
+                                "{volume_direction}"
+                            ]
+                        },
+                        {
+                            "name": "volume_amount",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{volume_amount}"
+                            ]
+                        },
+                        {
+                            "name": "video_service",
+                            "type": "LIST_OF_VIDEO_SERVICES",
+                            "samples": [
+                                "{video_service}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "turn {power_state}",
+                        "switch {power_state}",
+                        "press {button}",
+                        "hit {button}",
+                        "search for {search}",
+                        "turn volume {volume_direction}",
+                        "turn volume {volume_direction} by {volume_amount}",
+                        "open {video_service}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_BUTTONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "play"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "menu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ok"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "left"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "right"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "down"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_POWER_STATES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "on"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "off"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_VIDEO_SERVICES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "netflix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amazon"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_VOLUME_DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "down"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "SEARCH_STRINGS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "family guy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arrested development"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "daredevil"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "house of cards"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "Vizio",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "power_state",
+                            "type": "LIST_OF_POWER_STATES",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-power_state"
+                            }
+                        },
+                        {
+                            "name": "button",
+                            "type": "LIST_OF_BUTTONS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-button"
+                            }
+                        },
+                        {
+                            "name": "search",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-search"
+                            }
+                        },
+                        {
+                            "name": "volume_direction",
+                            "type": "LIST_OF_VOLUME_DIRECTIONS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-volume_direction"
+                            }
+                        },
+                        {
+                            "name": "volume_amount",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-volume_amount"
+                            }
+                        },
+                        {
+                            "name": "video_service",
+                            "type": "LIST_OF_VIDEO_SERVICES",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Vizio.IntentSlot-video_service"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-power_state",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "on or off?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-button",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what button?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-search",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "search for what?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-volume_direction",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "up or down?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-volume_amount",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "by how much"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Vizio.IntentSlot-video_service",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "which service, netflix or amazon?"
+                    }
+                ]
+            }
+        ]
+    }
+}
