@@ -1,1 +1,1 @@
-AWSIoTPythonSDK
+AWSIoTPythonSDK>=1.1.3
