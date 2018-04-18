@@ -153,12 +153,12 @@ def parse_args():
     # Usage
     usage = """
     Use certificate based mutual authentication:
-    python basicPubSub.py -e <endpoint> -r <rootCAFilePath> -c <certFilePath> -k <privateKeyFilePath>
+    python vizio_remote_control.py -e <endpoint> -r <rootCAFilePath> -c <certFilePath> -k <privateKeyFilePath>
 
     Use MQTT over WebSocket:
-    python basicPubSub.py -e <endpoint> -r <rootCAFilePath> -w
+    python vizio_remote_control.py -e <endpoint> -r <rootCAFilePath> -w
 
-    Type "python basicPubSub.py -h" for available options.
+    Type "python vizio_remote_control.py -h" for available options.
     """
     parser = argparse.ArgumentParser(usage=usage)
     parser.add_argument('-e', '--endpoint', required=True, help='Your AWS IoT custom endpoint')
