@@ -96,18 +96,19 @@ class VizioRemoteControl:
     def callback(self, client, userdata, message):
         repetition = 1
         if message.payload.split()[0] == "search":
-            self.vizio_search(message.payload.replace("search ", ""))
             self.respond()
+            self.vizio_search(message.payload.replace("search ", ""))
             return
         elif message.payload.split()[0] == "clear":
-            self.vizio_clear()
             self.respond()
+            self.vizio_clear()
             return
         elif message.payload.split()[0] == "video_service":
-            self.vizio_open_video_service(message.payload.upper().split()[1])
             self.respond()
+            self.vizio_open_video_service(message.payload.upper().split()[1])
             return
         else:
+            self.respond()
             button = ''
             if message.payload.upper().split()[1] == "OKAY":
                 button = "KEY_OK"
@@ -124,6 +125,35 @@ class VizioRemoteControl:
                     repetition = int(message.payload.split()[2])
                     # print "Turning volume down by %s" % repetition
                 # TODO: build in some error handling here for incorrect volume settings
+            elif message.payload.split()[0] == "mute_state":
+                button = "KEY_MUTE"
+            elif message.payload.split()[0] == "sleep_state":
+                button = "KEY_MENU"
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                button = "KEY_DOWN"
+                for i in range(1,10):
+                    subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                    time.sleep(0.3)
+                button = "KEY_UP"
+                for i in range(1,9):
+                    subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                    time.sleep(0.3)
+                button = "KEY_ENTER"
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                button = "KEY_DOWN"
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                button = "KEY_ENTER"
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                button = "KEY_MENU"
+                subprocess.Popen("irsend SEND_ONCE vizio " + button, shell=True)
+                time.sleep(0.3)
+                return
             else:
                 button = "KEY_" + message.payload.upper().split()[1]
             for i in range(repetition):
